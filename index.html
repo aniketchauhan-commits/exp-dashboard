@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eXp India — Prestige Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="print-root"></div>
+
+<!-- LOADING -->
+<div id="loading">
+  <img src="./logo.png" alt="eXp India Prestige" class="loading-logo"
+    onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <div class="ld-logo" style="display:none">e<em>X</em>p</div>
+  <div class="ld-sub">Loading your roadmap…</div>
+</div>
+
+<!-- ═══════════════════════════════ LOGIN ═══════════════════════════════ -->
+<div id="login-screen">
+  <div class="lw">
+    <div class="lb">
+      <div>
+        <img src="./logo.png" alt="eXp India Prestige" class="lb-logo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="lb-fb">e<em>X</em>p</span>
+        <div class="lb-tag">India · Prestige Portal V4.0</div>
+      </div>
+      <div class="lb-tiers">
+        <div class="lbt"><span class="tdot td-b"></span>Bronze — Starting &amp; Establishing</div>
+        <div class="lbt"><span class="tdot td-s"></span>Silver — Optimisation &amp; Consistency</div>
+        <div class="lbt"><span class="tdot td-g"></span>Gold — Personal Brand &amp; Amplification</div>
+        <div class="lbt"><span class="tdot td-p"></span>Platinum — Transaction Independence</div>
+        <div class="lbt"><span class="tdot td-d"></span>Diamond — Team Building &amp; Leadership</div>
+      </div>
+    </div>
+    <div class="lf">
+      <div class="lf-ey">Associate Career Roadmap</div>
+      <div class="lf-h">Welcome, Associate</div>
+      <div class="lf-sub">Sign in with your full name and eXp email address to access your personalised Prestige Portal and Career Roadmap.</div>
+      <div class="fg"><label>Full Name</label>
+        <input type="text" id="inp-name" placeholder="e.g. Priya Sharma" autocomplete="name"></div>
+      <div class="fg"><label>eXp Email ID</label>
+        <input type="email" id="inp-email" placeholder="priya.sharma@expglobalindia.com" autocomplete="email"></div>
+      <button class="btn-login" id="btn-login">Access My Roadmap →</button>
+      <div class="login-err" id="login-err">Associate not found. Please check your spelling or contact your Territory Manager.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DASHBOARD ═══════════════════════════════ -->
+<div id="dashboard">
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-in">
+        <div class="topbar-left">
+          <img src="./logo.png" alt="eXp India Prestige" class="tb-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="tb-fb">e<em>X</em>p</span>
+          <div class="tb-div"></div>
+          <span class="tb-sub">Prestige Portal</span>
+        </div>
+        <div class="topbar-right">
+          <span id="tb-badge"></span>
+          <button class="btn-out" id="btn-logout">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIENTATION MODE (Eligibility Gate — Block 1) -->
+  <div id="orientation-mode" style="display:none">
+    <div class="orientation-screen">
+      <div class="orientation-card" id="gate-card"></div>
+    </div>
+  </div>
+
+  <!-- FULL DASHBOARD (post-Launchpad) -->
+  <div id="main-dashboard" style="display:none">
+    <div class="wrap">
+
+      <div class="demo-notice" id="demo-notice">
+        ⚡ Preview mode — demo data. Place <strong>logo.png</strong> alongside this file and open locally to connect to live Google Sheets data.
+      </div>
+
+      <!-- IDENTITY CARD -->
+      <div class="identity-card a1" id="identity-card">
+        <div class="id-left">
+          <div class="id-avatar" id="id-avatar">👤</div>
+          <div class="id-text">
+            <div class="id-eyebrow">Associate Identity</div>
+            <div class="id-name" id="id-name">—</div>
+            <div class="id-meta" id="id-meta"></div>
+            <div id="id-context"></div>
+          </div>
+        </div>
+        <div class="id-right">
+          <div class="id-rank-block">
+            <div class="id-badge-lbl">Honor Title</div>
+            <div id="id-honor"></div>
+          </div>
+          <div class="id-rank-block">
+            <div class="id-badge-lbl">Milestone Badge</div>
+            <div id="id-badge-pill"></div>
+          </div>
+          <div id="id-support-tag"></div>
+        </div>
+      </div>
+
+      <!-- JOURNEY MAP -->
+      <div class="journey-map a2" id="journey-map"></div>
+
+      <!-- CELEBRATION BANNER -->
+      <div class="celebrate a3" id="celebrate" style="display:none">
+        <div class="cel-text">
+          <strong>🏆 Celebrate Your Achievement!</strong>
+          <span id="cel-sub">Share your milestone badge on LinkedIn and Instagram.</span>
+        </div>
+        <button class="btn-cert" id="btn-open-cert">View My Certificate</button>
+      </div>
+
+      <!-- YOUR ACTIVE ARSENAL -->
+      <div class="arsenal-wrap a3">
+        <div class="sec-hdr">
+          <div class="sec-title">Your Active Arsenal</div>
+          <div class="sec-rule"></div>
+          <div class="sec-tag">Rewards you have unlocked</div>
+        </div>
+        <div class="arsenal-card" id="arsenal-card"></div>
+      </div>
+
+      <!-- BRONZE / SILVER MISSION CONTROL — injected dynamically -->
+      <div id="bronze-mission-control" style="display:none"></div>
+
+      <!-- MISSION: GOLD+ generic pillar view -->
+      <div class="mission-wrap a5" id="mission-section">
+        <div class="sec-hdr">
+          <div class="sec-title" id="mission-title">Your Next Mission</div>
+          <div class="sec-rule"></div>
+          <div class="sec-tag" id="mission-tag"></div>
+        </div>
+
+        <div id="welcome-banner" style="display:none"></div>
+
+        <div class="kpi-banner" id="kpi-banner">
+          <div class="kpi-icon">🎯</div>
+          <div class="kpi-body">
+            <div class="kpi-title" id="kpi-title">Mission KPIs</div>
+            <div class="kpi-list" id="kpi-list"></div>
+          </div>
+        </div>
+
+        <div class="prog-card" id="std-prog-card">
+          <div class="prog-hdr">
+            <div class="prog-title" id="prog-title">Mission Progress</div>
+            <div class="prog-score"><span id="prog-num">0</span><sup>%</sup></div>
+          </div>
+          <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+          <div class="prog-meta">
+            <span class="prog-sub" id="prog-sub">Calculating…</span>
+            <span class="prog-lbl" id="prog-lbl"></span>
+          </div>
+        </div>
+
+        <div class="cta-review" id="cta-review" style="display:none">
+          <div class="cta-text">
+            <strong>🎉 Mission threshold reached!</strong>
+            <span>Your profile is over 80% optimised. Request your Milestone Badge upgrade now.</span>
+          </div>
+          <button class="btn-review" id="btn-review">Request Milestone Review →</button>
+        </div>
+
+        <div id="pillars-container" class="a6"></div>
+      </div>
+
+      <!-- THE DIAMOND HORIZON — bottom anchor / north star -->
+      <div class="horizon-wrap a4">
+        <div class="sec-hdr">
+          <div class="sec-title">The Diamond Horizon</div>
+          <div class="sec-rule"></div>
+          <div class="sec-tag">Your ultimate destination on the Prestige Ladder</div>
+        </div>
+        <div class="horizon-card" id="horizon-card"></div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /#dashboard -->
+
+<!-- BLOCK 1 — ELIGIBILITY GATE MODAL -->
+<dialog id="gate-modal">
+  <div class="gm-inner">
+    <div class="gm-head">
+      <div>
+        <div class="gm-title">Submit Missing Deliverables</div>
+        <div class="gm-sub">Provide the links below. Our team will verify within 72 hours and unlock your dashboard.</div>
+      </div>
+      <button class="gm-close" aria-label="Close" onclick="closeGateModal()">✕</button>
+    </div>
+    <div id="gm-body"></div>
+    <div class="gm-divider"></div>
+    <div class="gm-footer">
+      <button class="btn-gm-cancel" id="btn-gm-cancel">Cancel</button>
+      <button class="btn-gm-submit" id="btn-gm-submit">Submit Deliverables →</button>
+    </div>
+    <div class="gm-err" id="gm-err"></div>
+  </div>
+</dialog>
+
+<!-- BLOCK 2 — RESOURCE MODAL (Bronze Mission Control) -->
+<dialog id="resource-modal">
+  <div class="rm-inner">
+    <div class="rm-head">
+      <div>
+        <div class="rm-title" id="rm-title">Resource Hub</div>
+        <div class="rm-sub" id="rm-sub">Training materials for this mission</div>
+      </div>
+      <button class="rm-close" aria-label="Close" id="btn-rm-close">✕</button>
+    </div>
+    <div class="rm-tabs">
+      <button class="rm-tab active" data-tab="watch" id="rm-tab-watch">▶ Watch</button>
+      <button class="rm-tab" data-tab="read" id="rm-tab-read">📖 Read</button>
+    </div>
+    <div class="rm-body" id="rm-body-watch">
+      <div class="rm-video-placeholder" id="rm-video-placeholder">
+        <div class="rm-play-icon">▶</div>
+        <div class="rm-video-title" id="rm-video-title">60-second branding guide</div>
+        <div class="rm-video-sub">Video tutorial — drop the real link in to activate</div>
+        <a class="rm-video-btn" id="rm-video-link" href="#" target="_blank">Watch on YouTube →</a>
+      </div>
+    </div>
+    <div class="rm-body" id="rm-body-read" style="display:none">
+      <div class="rm-guide" id="rm-guide-content"></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- BLOCK 2 — EVIDENCE SUBMISSION MODAL -->
+<dialog id="evidence-modal">
+  <div class="ev-inner">
+    <div class="ev-head">
+      <div>
+        <div class="ev-title">Submit Evidence</div>
+        <div class="ev-sub" id="ev-task-label">Paste the link to your completed task below.</div>
+      </div>
+      <button class="ev-close" id="ev-close" aria-label="Close">✕</button>
+    </div>
+    <div class="ev-body">
+      <label class="ev-label">Profile / Task URL</label>
+      <input class="ev-input" id="ev-url-input" type="url"
+        placeholder="https://instagram.com/yourprofile or paste any link…"
+        autocomplete="off" spellcheck="false">
+      <div class="ev-hint">Our team reviews within 72 hours. You'll be notified on WhatsApp.</div>
+    </div>
+    <div class="ev-footer">
+      <button class="ev-cancel" id="ev-btn-cancel">Cancel</button>
+      <button class="ev-submit" id="ev-btn-send">Send for Verification →</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="core.js"></script>
+<script src="blocks/block1-gate.js"></script>
+<script src="blocks/block2-bronze.js"></script>
+<script src="blocks/block3-silver.js"></script>
+</body>
+</html>
