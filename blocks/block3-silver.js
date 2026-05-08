@@ -54,7 +54,7 @@ const SILVER_ASSETS = [
   },
   {
     id: 'twitter', label: 'Twitter / X — eXp Branded Handle', icon: '𝕏', pack: 'platform',
-    sheetId: 'twitter', brandedCol: 'Twitter Handle (X) eXp Branded',
+    sheetId: 'twitter', brandedCol: 'eXp Branded',
     why: 'X is where real estate conversations happen in real time. An eXp-branded handle lets you join the narrative and build micro-market thought leadership.',
     watchTitle: '60-sec X (Twitter) branding guide', watchUrl: '#',
     readSteps: [

@@ -85,7 +85,7 @@ const BRONZE_ASSETS = [
   },
   {
     id:'twitter', label:'Twitter / X — eXp Branded', icon:'𝕏', pack:'social',
-    linkCol:'Twitter Handle (X)', brandedCol:'Twitter Handle (X) eXp Branded',
+    linkCol:'Twitter Handle (X)', brandedCol:'eXp Branded',
     why:'X is where real estate conversations happen in real-time. An eXp-branded handle lets you join the narrative and build micro-market authority as a thought leader.',
     watchTitle:'60-sec X (Twitter) branding guide',
     watchUrl:'#',

@@ -15,7 +15,7 @@ const FORM_TASK      = '&entry.1865917462=';
 const SF = {
   facebook:  { key:'Facebook Handle eXp Branded',    label:'Facebook',          icon:'📘' },
   instagram: { key:'Instagram Handle eXp Branded',   label:'Instagram',         icon:'📸' },
-  twitter:   { key:'Twitter Handle (X) eXp Branded', label:'Twitter / X',       icon:'𝕏'  },
+  twitter:   { key:'eXp Branded', label:'Twitter / X',       icon:'𝕏'  },
   linkedin:  { key:'LinkedIn Handle eXp Branded',    label:'LinkedIn',          icon:'💼' },
   youtube:   { key:'YouTube Handle eXp Branded',     label:'YouTube',           icon:'▶️' },
   whatsapp:  { key:'WhatsApp Business',              label:'WhatsApp Business', icon:'📱' },
@@ -228,44 +228,44 @@ const hashStr = s => s.split('').reduce((a,c)=>((a<<5)-a+c.charCodeAt(0))|0,0).t
 ═══════════════════════════════════════════════════════ */
 const MOCK = [
   { 'Honor Title':'City Business Partner','Agent ID':'EXP-IN-2024-001',
-    'Agent Name':'Priya Sharma','eXP Email ID':'priya.sharma@expglobalindia.com',
+    'Agent Name':'Priya Sharma','eXp Email ID':'priya.sharma@expglobalindia.com',
     'City':'Mumbai','Social Badge':'Silver','Launchpad Completed':'Completed',
     'Professional Headshot':'https://drive.google.com/mock-priya-headshot',
     'Instagram Handle':'@priyasharma_exp','Facebook Handle':'https://facebook.com/priyasharma.exp',
     'Facebook Handle eXp Branded':'Branded Yes','Instagram Handle eXp Branded':'Branded Yes',
-    'Twitter Handle (X) eXp Branded':'Checked - no record found',
+    'eXp Branded':'Checked - no record found',
     'LinkedIn Handle eXp Branded':'Branded Yes','YouTube Handle eXp Branded':'Branded No',
     'WhatsApp Business':'Activated','Slack / eXp Hub':'Updated',
     'eXp Branded (Insta Card)':'Branded Yes','eXp Branded (Business Card)':'',
   },
   { 'Honor Title':'Territory Partner','Agent ID':'EXP-IN-2024-042',
-    'Agent Name':'Rahul Mehta','eXP Email ID':'rahul.mehta@expglobalindia.com',
+    'Agent Name':'Rahul Mehta','eXp Email ID':'rahul.mehta@expglobalindia.com',
     'City':'Delhi','Social Badge':'Gold','Launchpad Completed':'Completed',
     'Professional Headshot':'https://drive.google.com/mock-rahul-headshot',
     'Instagram Handle':'@rahulmehta_exp','Facebook Handle':'https://facebook.com/rahulmehta.exp',
     'Facebook Handle eXp Branded':'Branded Yes','Instagram Handle eXp Branded':'Branded Yes',
-    'Twitter Handle (X) eXp Branded':'Branded Yes','LinkedIn Handle eXp Branded':'Branded Yes',
+    'eXp Branded':'Branded Yes','LinkedIn Handle eXp Branded':'Branded Yes',
     'YouTube Handle eXp Branded':'Branded Yes','WhatsApp Business':'Activated',
     'Slack / eXp Hub':'Updated','eXp Branded (Insta Card)':'Branded Yes',
     'eXp Branded (Business Card)':'Branded Yes',
   },
   { 'Honor Title':'Associate','Agent ID':'EXP-IN-2024-099',
-    'Agent Name':'Sneha Patel','eXP Email ID':'sneha.patel@expglobalindia.com',
+    'Agent Name':'Sneha Patel','eXp Email ID':'sneha.patel@expglobalindia.com',
     'City':'Bangalore','Social Badge':'Bronze','Launchpad Completed':'Completed',
     'Professional Headshot':'https://drive.google.com/mock-sneha-headshot',
     'Instagram Handle':'@snehapatel_exp','Facebook Handle':'https://facebook.com/snehapatel.exp',
     'Facebook Handle eXp Branded':'Branded Yes','Instagram Handle eXp Branded':'Branded No',
-    'Twitter Handle (X) eXp Branded':'','LinkedIn Handle eXp Branded':'Checked - no record found',
+    'eXp Branded':'','LinkedIn Handle eXp Branded':'Checked - no record found',
     'YouTube Handle eXp Branded':'','WhatsApp Business':'Activated',
     'Slack / eXp Hub':'needs to be looked at','eXp Branded (Insta Card)':'',
     'eXp Branded (Business Card)':'Branded No',
   },
   { 'Honor Title':'Associate','Agent ID':'EXP-IN-2024-200',
-    'Agent Name':'Amit Joshi','eXP Email ID':'amit.joshi@expglobalindia.com',
+    'Agent Name':'Amit Joshi','eXp Email ID':'amit.joshi@expglobalindia.com',
     'City':'Pune','Social Badge':'Bronze','Launchpad Completed':'Not Completed',
     'Professional Headshot':'','Instagram Handle':'','Facebook Handle':'',
     'Facebook Handle eXp Branded':'','Instagram Handle eXp Branded':'',
-    'Twitter Handle (X) eXp Branded':'','LinkedIn Handle eXp Branded':'',
+    'eXp Branded':'','LinkedIn Handle eXp Branded':'',
     'YouTube Handle eXp Branded':'','WhatsApp Business':'',
     'Slack / eXp Hub':'','eXp Branded (Insta Card)':'','eXp Branded (Business Card)':'',
   },
@@ -382,7 +382,7 @@ async function login() {
 
   const find=arr=>arr.find(r=>
     (r['Agent Name']||'').toLowerCase().trim()===name.toLowerCase().trim()&&
-    (r['eXP Email ID']||'').toLowerCase().trim()===email.toLowerCase().trim()
+    (r['eXp Email ID']||'').toLowerCase().trim()===email.toLowerCase().trim()
   );
   let agent=find(rows);
   if (!agent&&!mock){ const m=find(MOCK); if(m){agent=m;mock=true;} }
@@ -405,7 +405,7 @@ function render(a, mock) {
   const badge=a['Social Badge']||'Bronze';
   const next=nextTier(badge);
   const curIdx=tierIdx(badge);
-  const emailHash=hashStr(a['eXP Email ID']||a['Agent Name']||'demo');
+  const emailHash=hashStr(a['eXp Email ID']||a['Agent Name']||'demo');
 
   if (mock) $('demo-notice').style.display='block';
 
